@@ -48,7 +48,7 @@ pip install -r requirements.txt
 
 
 ## API Routes
-Add a New Person
+Add a New Person <br>
 **Endpoint:**  ```https://restfulapi-7fii.onrender.com/api/add_person``` <br>
 **HTTP Method:** POST <br>
 **Description:** Adds a new person to the database. <br>
@@ -75,7 +75,7 @@ POST  https://restfulapi-7fii.onrender.com/api/add_person/Divine chukwu
 }
 ```
 
-Get Person Details by Name
+Get Person Details by Name <br>
 **Endpoint:**  ```https://restfulapi-7fii.onrender.com/api/get_person/<string:name>``` <br>
 **HTTP Method:** GET <br>
 **Description:** Retrieves details of a person by their name. <br>
@@ -95,7 +95,7 @@ GET  https://restfulapi-7fii.onrender.com/api/get_person/John Doe
 ```
 
 
-Update Person Details
+Update Person Details <br>
 **Endpoint:**  ```https://restfulapi-7fii.onrender.com/api/update_person/<string:name>``` <br>
 **HTTP Method:** PUT <br>
 **Description:** Updates details of an existing person by their name taken as a string in the url. If new_name is specified among the parameters, it updates the user's name too. <br>
@@ -122,7 +122,7 @@ PUT  https://restfulapi-7fii.onrender.com/api/update_person/Divine chukwu
 }
 ```
 
-Delete Person by Name
+Delete Person by Name <br>
 **Endpoint:**  ```https://restfulapi-7fii.onrender.com/api/delete_person/<string:name>``` <br>
 **HTTP Method:** DELETE <br>
 **Description:** Deletes a person by their name. <br>
