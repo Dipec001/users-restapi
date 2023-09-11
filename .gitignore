@@ -3,3 +3,12 @@
 # Database files
 *.db
 *.sqlite
+
+__pycache__/
+venv/
+*.pyc
+*.pyo
+
+.flaskenv
+instance/
+migrations/
