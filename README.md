@@ -14,6 +14,7 @@ This is the documentation for the Users RESTful API developed by Divine Chukwu u
    - [Delete Person by Name](#delete-person-by-name)
 5. [Running the API](#running-the-api)
 6. [Usage](#usage)
+7. [Assumptions](#assumptions)
 
 
 ## Introduction
@@ -47,7 +48,7 @@ pip install -r requirements.txt
 
 ## API Routes
 Add a New Person <br>
-**Endpoint:** /api/add_person <br>
+**Endpoint:**  https://restfulapi-7fii.onrender.com/api/add_person <br>
 **HTTP Method:** POST <br>
 **Description:** Adds a new person to the database. <br>
 **Parameters:** JSON object with the following fields: <br>
@@ -68,12 +69,12 @@ gender (string, optional): The gender of the person. <br>
 } <br>
 
 Get Person Details by Name <br>
-**Endpoint:** /api/get_person/<string:name> <br>
+**Endpoint:**  https://restfulapi-7fii.onrender.com/api/get_person/<<string:name>> <br>
 **HTTP Method:** GET <br>
 **Description:** Retrieves details of a person by their name. <br>
 **Parameters:** The name parameter should be a string representing the person's name. <br>
 **Example Request:** <br>
-GET /api/get_person/John%20Doe <br>
+GET  https://restfulapi-7fii.onrender.com/api/get_person/John%20Doe <br>
 **Example Response:** <br>
 { <br>
    "name": "John Doe", <br>
@@ -84,19 +85,19 @@ GET /api/get_person/John%20Doe <br>
 
 
 Update Person Details <br>
-**Endpoint:** /api/update_person <br>
+**Endpoint:**  https://restfulapi-7fii.onrender.com/api/update_person/<<string:name>> <br>
 **HTTP Method:** PUT <br>
-**Description:** Updates details of an existing person by their name. <br>
+**Description:** Updates details of an existing person by their name taken as a string in the url. If new_name is specified among the parameters, it updates the user's name too. <br>
 **Parameters:** JSON object with the following fields: <br>
-name (string, required): The name of the person to update. <br>
+new_name (string, optional): The updated name of the person. <br>
 age (string, optional): The updated age of the person. <br>
 nationality (string, optional): The updated nationality of the person. <br>
 gender (string, optional): The updated gender of the person. <br>
 **Example Request:** <br>
 { <br>
-  "name": "John Doe", <br>
-  "age": "31", <br>
-  "nationality": "American", <br>
+  "new_name": "C ronaldo", <br>
+  "age": "38", <br>
+  "nationality": "Portuguese", <br>
   "gender": "Male" <br>
 } <br>
 **Example Response:** <br>
@@ -106,7 +107,7 @@ gender (string, optional): The updated gender of the person. <br>
 
 
 Delete Person by Name <br>
-**Endpoint:** /api/delete_person/<string:name> <br>
+**Endpoint:**  https://restfulapi-7fii.onrender.com/api/delete_person/<string:name> <br>
 **HTTP Method:** DELETE <br>
 **Description:** Deletes a person by their name. <br>
 **Parameters:** The name parameter should be a string representing the person's name. <br>
@@ -125,7 +126,13 @@ python main.py <br>
 The API will be accessible at **http://127.0.0.1:5000** <br>
 
 ## Usage <br>
-You can use an HTTP clients like Postman to interact with the API. Refer to the API routes above for endpoint details.
+You can use an HTTP clients like Postman to interact with the API. Refer to the API routes above for endpoint details. <br>
+
+## Assummptions <br>
+- I assumed that the users have other attributes apart from their names. Attributes like age, nationality, gender.
+
+
+
 
 
 
