@@ -12,7 +12,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
 
 # Create DB
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("MY_DATABASE_URL")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
@@ -41,8 +41,8 @@ def add_person():
     if 'name' not in data:
         return jsonify({'message': 'Name parameter is required'}), 400
 
-    if not isinstance(data['name'], str):
-        return jsonify({'message': 'Name should be a string'}), 400
+    if not isinstance(data['name'], str) or not data['name']:
+        return jsonify({'message': 'Name should be a non-empty string'}), 400
 
     if 'age' in data and not isinstance(data['age'], str):
         return jsonify({'message': 'Age should be a string'}), 400
