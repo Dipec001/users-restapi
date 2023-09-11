@@ -36,36 +36,36 @@ pip install flask flask_sqlalchemy
 
 ## Setup
 
-Clone this repository to your local machine:
-git clone https://github.com/Dipec001/users-restapi.git
-Navigate to your project directory
-cd users-restapi
-Install the required Python packages:
+Clone this repository to your local machine: <br>
+git clone https://github.com/Dipec001/users-restapi.git <br>
+Navigate to your project directory <br>
+cd users-restapi <br>
+Install the required Python packages: <br>
 pip install -r requirements.txt
 
 
 
 ## API Routes
-Add a New Person
-**Endpoint:** /api/add_person
-**HTTP Method:** POST
-**Description:** Adds a new person to the database.
-**Parameters:** JSON object with the following fields:
-name (string, required): The name of the person.
-age (string, optional): The age of the person.
-nationality (string, optional): The nationality of the person.
-gender (string, optional): The gender of the person.
-**Example Request:**
-{
-  "name": "John Doe",
-  "age": "30",
-  "nationality": "American",
-  "gender": "Male"
-}
-**Example Response:**
-{
-  "message": "User added successfully"
-}
+Add a New Person <br>
+**Endpoint:** /api/add_person <br>
+**HTTP Method:** POST <br>
+**Description:** Adds a new person to the database. <br>
+**Parameters:** JSON object with the following fields: <br>
+name (string, required): The name of the person. <br>
+age (string, optional): The age of the person. <br>
+nationality (string, optional): The nationality of the person. <br>
+gender (string, optional): The gender of the person. <br>
+**Example Request:** <br>
+{ <br>
+  "name": "John Doe", <br>
+  "age": "30", <br>
+  "nationality": "American", <br>
+  "gender": "Male" <br>
+} <br>
+**Example Response:** <br>
+{ <br>
+  "message": "User added successfully" <br>
+} <br>
 
 Get Person Details by Name
 **Endpoint:** /api/get_person/<string:name>
