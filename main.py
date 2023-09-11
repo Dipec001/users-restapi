@@ -86,7 +86,7 @@ def get_person(name):
         return jsonify({'message': 'Name parameter is required'}), 400
 
     # Query the database to find the person by name
-    person = User.query.filter_by(name=normalized_name).first()
+    person = User.query.filter_by(name=normalized_name.lower()).first()
 
     if person:
         # Person found, return their details
@@ -112,7 +112,7 @@ def update_person(name):
     normalized_existing_name = re.sub(r'\s+', ' ', name).strip()
 
     # Check if a user with the provided existing name exists
-    existing_user = User.query.filter_by(name=normalized_existing_name).first()
+    existing_user = User.query.filter_by(name=normalized_existing_name.lower()).first()
 
     if existing_user:
         # User with the existing name exists, proceed with the update
@@ -125,13 +125,13 @@ def update_person(name):
             normalized_new_name = re.sub(r'\s+', ' ', new_name).strip()
 
             # Check if the new name already exists
-            user_with_new_name = User.query.filter_by(name=normalized_new_name).first()
+            user_with_new_name = User.query.filter_by(name=normalized_new_name.lower()).first()
 
             if user_with_new_name:
                 return jsonify({'message': 'New name already exists'}), 400
 
             # Update the name to the new name
-            existing_user.name = normalized_new_name
+            existing_user.name = normalized_new_name.lower()
 
         # Extract and update other optional parameters
         if 'age' in data:
@@ -163,7 +163,7 @@ def delete_person(name):
     normalized_name = re.sub(r'\s+', ' ', name).strip()
 
     # Query the database to find the person by name
-    person = User.query.filter_by(name=normalized_name).first()
+    person = User.query.filter_by(name=normalized_name.lower()).first()
 
     if person:
         # Person found, remove them from the database
