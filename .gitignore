@@ -1,0 +1,5 @@
+.env
+
+# Database files
+*.db
+*.sqlite
