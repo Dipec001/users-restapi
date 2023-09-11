@@ -136,16 +136,16 @@ DELETE https://restfulapi-7fii.onrender.com/api/delete_person/Divine chukwu
 ```
 
 
-## Running the API <br>
+## Running the API
 To run the API locally, execute the following command: <br>
 python main.py <br>
 
 The API will be accessible at **http://127.0.0.1:5000/api** <br>
 
-## Usage <br>
+## Usage
 You can use an HTTP clients like Postman to interact with the API. Refer to the API routes above for endpoint details. <br>
 
-## Assummptions <br>
+## Assummptions
 - I assumed that the users have other attributes apart from their names. Attributes like age, nationality, gender.
 
 
