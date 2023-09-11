@@ -103,39 +103,35 @@ def get_person(name):
 
 
 # Route for updating details of an existing person by name
-@app.route('/api/update_person', methods=['PUT'])
-def update_person():
+@app.route('/api/update_person/<string:name>', methods=['PUT'])
+def update_person(name):
     # Get the JSON data from the request
     data = request.json
 
-    # Validate data types and existence of 'name' field
-    if 'name' not in data or not isinstance(data['name'], str):
-        return jsonify({'message': 'Name should be a string'}), 400
+    # Normalize the provided existing name
+    normalized_existing_name = re.sub(r'\s+', ' ', name).strip()
 
-    if 'age' in data and not isinstance(data['age'], str):
-        return jsonify({'message': 'Age should be a string'}), 400
-
-    if 'nationality' in data and not isinstance(data['nationality'], str):
-        return jsonify({'message': 'Nationality should be a string'}), 400
-
-    if 'gender' in data and not isinstance(data['gender'], str):
-        return jsonify({'message': 'Gender should be a string'}), 400
-
-    # Check if 'name' parameter is present in the JSON data
-    if 'name' not in data:
-        return jsonify({'message': 'Name parameter is required'}), 400
-
-    # Extract the name parameter and normalize it
-    name = data['name']
-
-    # Normalize the name by reducing multiple spaces to a single space
-    normalized_name = re.sub(r'\s+', ' ', name).strip()
-
-    # Check if a user with the provided name exists
-    existing_user = User.query.filter_by(name=normalized_name).first()
+    # Check if a user with the provided existing name exists
+    existing_user = User.query.filter_by(name=normalized_existing_name).first()
 
     if existing_user:
-        # User with the same name exists, proceed with the update
+        # User with the existing name exists, proceed with the update
+
+        # Extract the new name if provided
+        new_name = data.get('new_name')
+
+        if new_name:
+            # Normalize the new name
+            normalized_new_name = re.sub(r'\s+', ' ', new_name).strip()
+
+            # Check if the new name already exists
+            user_with_new_name = User.query.filter_by(name=normalized_new_name).first()
+
+            if user_with_new_name:
+                return jsonify({'message': 'New name already exists'}), 400
+
+            # Update the name to the new name
+            existing_user.name = normalized_new_name
 
         # Extract and update other optional parameters
         if 'age' in data:
@@ -150,7 +146,7 @@ def update_person():
 
         return jsonify({'message': 'User updated successfully'}), 200
     else:
-        # User with the provided name does not exist, return an error response
+        # User with the provided existing name does not exist, return an error response
         return jsonify({'message': 'User not found'}), 404
 
 
