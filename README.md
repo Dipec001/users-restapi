@@ -48,7 +48,7 @@ pip install -r requirements.txt
 
 ## API Routes
 Add a New Person <br>
-**Endpoint:**  https://restfulapi-7fii.onrender.com/api/add_person <br>
+**Endpoint:**  ```https://restfulapi-7fii.onrender.com/api/add_person``` <br>
 **HTTP Method:** POST <br>
 **Description:** Adds a new person to the database. <br>
 **Parameters:** JSON object with the following fields: <br>
@@ -57,16 +57,20 @@ age (string, optional): The age of the person. <br>
 nationality (string, optional): The nationality of the person. <br>
 gender (string, optional): The gender of the person. <br>
 **Example Request:** <br>
-{ <br>
-  "name": "John Doe", <br>
-  "age": "30", <br>
-  "nationality": "American", <br>
-  "gender": "Male" <br>
-} <br>
+```
+{
+  "name": "John Doe",
+  "age": "30",
+  "nationality": "American",
+  "gender": "Male"
+}
+```
 **Example Response:** <br>
-{ <br>
-  "message": "User added successfully" <br>
-} <br>
+```
+{
+  "message": "User added successfully"
+}
+```
 
 Get Person Details by Name <br>
 **Endpoint:**  https://restfulapi-7fii.onrender.com/api/get_person/<<string:name>> <br>
@@ -74,14 +78,18 @@ Get Person Details by Name <br>
 **Description:** Retrieves details of a person by their name. <br>
 **Parameters:** The name parameter should be a string representing the person's name. <br>
 **Example Request:** <br>
-GET  https://restfulapi-7fii.onrender.com/api/get_person/John Doe <br>
+```
+GET  https://restfulapi-7fii.onrender.com/api/get_person/John Doe
+```
 **Example Response:** <br>
-{ <br>
-   "name": "John Doe", <br>
-   "age": "30", <br>
-   "nationality": "American", <br>
-   "gender": "Male" <br>
-} <br>
+```
+{
+   "name": "John Doe",
+   "age": "30",
+   "nationality": "American",
+   "gender": "Male"
+}
+```
 
 
 Update Person Details <br>
@@ -94,17 +102,20 @@ age (string, optional): The updated age of the person. <br>
 nationality (string, optional): The updated nationality of the person. <br>
 gender (string, optional): The updated gender of the person. <br>
 **Example Request:** <br>
-{ <br>
-  "new_name": "C ronaldo", <br>
-  "age": "38", <br>
-  "nationality": "Portuguese", <br>
-  "gender": "Male" <br>
-} <br>
+```
+{
+  "new_name": "C ronaldo",
+  "age": "38",
+  "nationality": "Portuguese",
+  "gender": "Male"
+}
+```
 **Example Response:** <br>
-{ <br>
-  "message": "User updated successfully" <br>
-} <br>
-
+```
+{
+  "message": "User updated successfully"
+}
+```
 
 Delete Person by Name <br>
 **Endpoint:**  https://restfulapi-7fii.onrender.com/api/delete_person/<<string:name>> <br>
@@ -112,18 +123,22 @@ Delete Person by Name <br>
 **Description:** Deletes a person by their name. <br>
 **Parameters:** The name parameter should be a string representing the person's name. <br>
 **Example Request:** <br>
-DELETE https://restfulapi-7fii.onrender.com/api/delete_person/Divine chukwu <br>
+```
+DELETE https://restfulapi-7fii.onrender.com/api/delete_person/Divine chukwu
+```
 **Example Response:** <br>
-{ <br>
-  "message": "Person removed successfully" <br>
-} <br>
+```
+{
+  "message": "Person removed successfully"
+}
+```
 
 
 ## Running the API <br>
 To run the API locally, execute the following command: <br>
 python main.py <br>
 
-The API will be accessible at **http://127.0.0.1:5000** <br>
+The API will be accessible at **http://127.0.0.1:5000/api** <br>
 
 ## Usage <br>
 You can use an HTTP clients like Postman to interact with the API. Refer to the API routes above for endpoint details. <br>
