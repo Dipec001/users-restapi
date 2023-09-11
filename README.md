@@ -58,8 +58,9 @@ nationality (string, optional): The nationality of the person. <br>
 gender (string, optional): The gender of the person. <br>
 **Example Request:** <br>
 ```
+POST https://restfulapi-7fii.onrender.com/api/add_person/Divine chukwu
 {
-  "name": "John Doe",
+  "name": "Divine chukwu",
   "age": "30",
   "nationality": "American",
   "gender": "Male"
@@ -103,6 +104,7 @@ nationality (string, optional): The updated nationality of the person. <br>
 gender (string, optional): The updated gender of the person. <br>
 **Example Request:** <br>
 ```
+PUT https://restfulapi-7fii.onrender.com/api/update_person/Divine chukwu
 {
   "new_name": "C ronaldo",
   "age": "38",
