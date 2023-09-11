@@ -67,64 +67,64 @@ gender (string, optional): The gender of the person. <br>
   "message": "User added successfully" <br>
 } <br>
 
-Get Person Details by Name
-**Endpoint:** /api/get_person/<string:name>
-**HTTP Method:** GET
-**Description:** Retrieves details of a person by their name.
-**Parameters:** The name parameter should be a string representing the person's name.
-**Example Request:**
-GET /api/get_person/John%20Doe
-**Example Response:**
-{
-  "name": "John Doe",
-  "age": "30",
-  "nationality": "American",
-  "gender": "Male"
-}
+Get Person Details by Name <br>
+**Endpoint:** /api/get_person/<string:name> <br>
+**HTTP Method:** GET <br>
+**Description:** Retrieves details of a person by their name. <br>
+**Parameters:** The name parameter should be a string representing the person's name. <br>
+**Example Request:** <br>
+GET /api/get_person/John%20Doe <br>
+**Example Response:** <br>
+{ <br>
+   "name": "John Doe", <br>
+   "age": "30", <br>
+   "nationality": "American", <br>
+   "gender": "Male" <br>
+} <br>
 
 
-Update Person Details
-**Endpoint:** /api/update_person
-**HTTP Method:** PUT
-**Description:** Updates details of an existing person by their name.
-**Parameters:** JSON object with the following fields:
-name (string, required): The name of the person to update.
-age (string, optional): The updated age of the person.
-nationality (string, optional): The updated nationality of the person.
-gender (string, optional): The updated gender of the person.
-**Example Request:**
-{
-  "name": "John Doe",
-  "age": "31",
-  "nationality": "American",
-  "gender": "Male"
-}
-**Example Response:**
-{
-  "message": "User updated successfully"
-}
+Update Person Details <br>
+**Endpoint:** /api/update_person <br>
+**HTTP Method:** PUT <br>
+**Description:** Updates details of an existing person by their name. <br>
+**Parameters:** JSON object with the following fields: <br>
+name (string, required): The name of the person to update. <br>
+age (string, optional): The updated age of the person. <br>
+nationality (string, optional): The updated nationality of the person. <br>
+gender (string, optional): The updated gender of the person. <br>
+**Example Request:** <br>
+{ <br>
+  "name": "John Doe", <br>
+  "age": "31", <br>
+  "nationality": "American", <br>
+  "gender": "Male" <br>
+} <br>
+**Example Response:** <br>
+{ <br>
+  "message": "User updated successfully" <br>
+} <br>
 
 
-Delete Person by Name
-**Endpoint:** /api/delete_person/<string:name>
-**HTTP Method:** DELETE
-**Description:** Deletes a person by their name.
-**Parameters:** The name parameter should be a string representing the person's name.
-**Example Request:**
-DELETE /api/delete_person/John%20Doe
-**Example Response:**
-{
-  "message": "Person removed successfully"
-}
+Delete Person by Name <br>
+**Endpoint:** /api/delete_person/<string:name> <br>
+**HTTP Method:** DELETE <br>
+**Description:** Deletes a person by their name. <br>
+**Parameters:** The name parameter should be a string representing the person's name. <br>
+**Example Request:** <br>
+DELETE /api/delete_person/John%20Doe <br>
+**Example Response:** <br>
+{ <br>
+  "message": "Person removed successfully" <br>
+} <br>
 
 
-## Running the API
-To run the API locally, execute the following command:
-python main.py
+## Running the API <br>
+To run the API locally, execute the following command: <br>
+python main.py <br>
 
-The API will be accessible at **http://127.0.0.1:5000**
+The API will be accessible at **http://127.0.0.1:5000** <br>
 
-## Usage
+## Usage <br>
 You can use an HTTP clients like Postman to interact with the API. Refer to the API routes above for endpoint details.
 
 
