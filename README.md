@@ -47,7 +47,7 @@ pip install -r requirements.txt
 
 
 ## API Routes
-Add a New Person <br>
+Add a New Person
 **Endpoint:**  ```https://restfulapi-7fii.onrender.com/api/add_person``` <br>
 **HTTP Method:** POST <br>
 **Description:** Adds a new person to the database. <br>
@@ -58,7 +58,8 @@ nationality (string, optional): The nationality of the person. <br>
 gender (string, optional): The gender of the person. <br>
 **Example Request:** <br>
 ```
-POST https://restfulapi-7fii.onrender.com/api/add_person/Divine chukwu
+POST  https://restfulapi-7fii.onrender.com/api/add_person/Divine chukwu
+
 {
   "name": "Divine chukwu",
   "age": "30",
@@ -73,7 +74,7 @@ POST https://restfulapi-7fii.onrender.com/api/add_person/Divine chukwu
 }
 ```
 
-Get Person Details by Name <br>
+Get Person Details by Name
 **Endpoint:**  ```https://restfulapi-7fii.onrender.com/api/get_person/<string:name>``` <br>
 **HTTP Method:** GET <br>
 **Description:** Retrieves details of a person by their name. <br>
@@ -93,7 +94,7 @@ GET  https://restfulapi-7fii.onrender.com/api/get_person/John Doe
 ```
 
 
-Update Person Details <br>
+Update Person Details
 **Endpoint:**  ```https://restfulapi-7fii.onrender.com/api/update_person/<string:name>``` <br>
 **HTTP Method:** PUT <br>
 **Description:** Updates details of an existing person by their name taken as a string in the url. If new_name is specified among the parameters, it updates the user's name too. <br>
@@ -104,7 +105,8 @@ nationality (string, optional): The updated nationality of the person. <br>
 gender (string, optional): The updated gender of the person. <br>
 **Example Request:** <br>
 ```
-PUT https://restfulapi-7fii.onrender.com/api/update_person/Divine chukwu
+PUT  https://restfulapi-7fii.onrender.com/api/update_person/Divine chukwu
+
 {
   "new_name": "C ronaldo",
   "age": "38",
@@ -119,7 +121,7 @@ PUT https://restfulapi-7fii.onrender.com/api/update_person/Divine chukwu
 }
 ```
 
-Delete Person by Name <br>
+Delete Person by Name
 **Endpoint:**  ```https://restfulapi-7fii.onrender.com/api/delete_person/<string:name>``` <br>
 **HTTP Method:** DELETE <br>
 **Description:** Deletes a person by their name. <br>
