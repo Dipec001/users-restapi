@@ -15,6 +15,7 @@ This is the documentation for the Users RESTful API developed by Divine Chukwu u
 5. [Running the API](#running-the-api)
 6. [Usage](#usage)
 7. [Assumptions](#assumptions)
+8. [API Doc with Postman](#api-doc-with-postman)
 
 
 ## Introduction
@@ -149,6 +150,10 @@ You can use an HTTP clients like Postman to interact with the API. Refer to the 
 
 ## Assummptions
 - I assumed that the users have other attributes apart from their names. Attributes like age, nationality, gender.
+
+## API Doc with Postman
+Simple API doc which contains other example requests including headers to be passed <br>
+<a href="https://documenter.getpostman.com/view/27596602/2s9YC2zYhr">Link to documentation</a>
 
 
 
