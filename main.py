@@ -74,12 +74,21 @@ def add_person():
     db.session.add(new_user)
     db.session.commit()
 
-    return jsonify({'message': 'User added successfully'}), 201
+    # Prepare the response with the newly created user's information
+    response_data = {
+        "id": new_user.id,  # Replace with the actual ID retrieval method
+        "name": new_user.name,
+        "age": new_user.age,
+        "nationality": new_user.nationality,
+        "gender": new_user.gender
+    }
+
+    return jsonify(response_data), 201
 
 
 # Route for fetching details of a person by name
 @app.route('/api/<string:name>', methods=['GET'])
-def get_person(name):
+def get_person_by_name(name):
     if name is None:
         return jsonify({'message': 'Invalid request. Name parameter is missing'}), 400
 
@@ -109,9 +118,32 @@ def get_person(name):
         return jsonify({'message': 'Person not found'}), 404
 
 
+@app.route('/api/<int:user_id>', methods=['GET'])
+def get_person_by_id(user_id):
+    if user_id is None:
+        return jsonify({'message': 'Invalid request. User ID parameter is missing'}), 400
+
+    # Query the database to find the person by user_id
+    person = User.query.get(user_id)
+
+    if person:
+        # Person found, return their details
+        person_data = {
+            'id': person.id,
+            'name': person.name,
+            'age': person.age,
+            'nationality': person.nationality,
+            'gender': person.gender
+        }
+        return jsonify(person_data), 200
+    else:
+        # Person not found, return an error response
+        return jsonify({'message': 'Person not found'}), 404
+
+
 # Route for updating details of an existing person by name
 @app.route('/api/<string:name>', methods=['PUT'])
-def update_person(name):
+def update_person_by_name(name):
     # Get the JSON data from the request
     data = request.json
 
@@ -157,9 +189,53 @@ def update_person(name):
         return jsonify({'message': 'User not found'}), 404
 
 
+@app.route('/api/<int:user_id>', methods=['PUT'])
+def update_person_by_id(user_id):
+    # Get the JSON data from the request
+    data = request.json
+
+    # Query the database to find the person by user_id
+    existing_user = User.query.get(user_id)
+
+    if existing_user:
+        # User with the provided user_id exists, proceed with the update
+
+        # Extract and update the new name if provided
+        new_name = data.get('new_name')
+
+        if new_name:
+            # Normalize the new name
+            normalized_new_name = re.sub(r'\s+', ' ', new_name).strip()
+
+            # Check if the new name already exists
+            user_with_new_name = User.query.filter_by(name=normalized_new_name.lower()).first()
+
+            if user_with_new_name:
+                return jsonify({'message': 'New name already exists'}), 400
+
+            # Update the name to the new name
+            existing_user.name = normalized_new_name.lower()
+
+        # Extract and update other optional parameters
+        if 'age' in data:
+            existing_user.age = data['age']
+        if 'nationality' in data:
+            existing_user.nationality = data['nationality']
+        if 'gender' in data:
+            existing_user.gender = data['gender']
+
+        # Commit the changes to the database
+        db.session.commit()
+
+        return jsonify({'message': 'User updated successfully'}), 200
+    else:
+        # User with the provided user_id does not exist, return an error response
+        return jsonify({'message': 'User not found'}), 404
+
+
 # DELETE route for removing a person by name
 @app.route('/api/<string:name>', methods=['DELETE'])
-def delete_person(name):
+def delete_person_by_name(name):
     if not name:
         return jsonify({'message': 'Name parameter is missing'}), 400
 
@@ -171,6 +247,21 @@ def delete_person(name):
 
     # Query the database to find the person by name
     person = User.query.filter_by(name=normalized_name.lower()).first()
+
+    if person:
+        # Person found, remove them from the database
+        db.session.delete(person)
+        db.session.commit()
+        return jsonify({'message': 'Person removed successfully'}), 200
+    else:
+        # Person not found, return an error response
+        return jsonify({'message': 'Person not found'}), 404
+
+
+@app.route('/api/<int:user_id>', methods=['DELETE'])
+def delete_person_by_id(user_id):
+    # Query the database to find the person by user_id
+    person = User.query.get(user_id)
 
     if person:
         # Person found, remove them from the database
