@@ -31,8 +31,8 @@ with app.app_context():
     db.create_all()
 
 
-# Route for adding a new person
-@app.route('/api/add_person', methods=['POST'])
+# Route for creating a new person
+@app.route('/api', methods=['POST'])
 def add_person():
     # Get the JSON data from the request
     data = request.json
@@ -78,7 +78,7 @@ def add_person():
 
 
 # Route for fetching details of a person by name
-@app.route('/api/get_person/<string:name>', methods=['GET'])
+@app.route('/api/<string:name>', methods=['GET'])
 def get_person(name):
     if name is None:
         return jsonify({'message': 'Invalid request. Name parameter is missing'}), 400
@@ -110,7 +110,7 @@ def get_person(name):
 
 
 # Route for updating details of an existing person by name
-@app.route('/api/update_person/<string:name>', methods=['PUT'])
+@app.route('/api/<string:name>', methods=['PUT'])
 def update_person(name):
     # Get the JSON data from the request
     data = request.json
@@ -158,7 +158,7 @@ def update_person(name):
 
 
 # DELETE route for removing a person by name
-@app.route('/api/delete_person/<string:name>', methods=['DELETE'])
+@app.route('/api/<string:name>', methods=['DELETE'])
 def delete_person(name):
     if not name:
         return jsonify({'message': 'Name parameter is missing'}), 400
