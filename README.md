@@ -160,7 +160,7 @@ nationality (string, optional): The updated nationality of the person. <br>
 gender (string, optional): The updated gender of the person. <br>
 **Example Request:** <br>
 ```
-PUT  https://restfulapi-51bb862a3f02.herokuapp.com/api/Divine chukwu
+PUT  https://restfulapi-51bb862a3f02.herokuapp.com/api/1
 Content-Type: application/json
 
 {
