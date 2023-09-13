@@ -107,6 +107,7 @@ def get_person_by_name(name):
     if person:
         # Person found, return their details
         person_data = {
+            'id': person.id,
             'name': person.name,
             'age': person.age,
             'nationality': person.nationality,
