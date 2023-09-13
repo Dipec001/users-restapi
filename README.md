@@ -66,7 +66,6 @@ POST  https://restfulapi-51bb862a3f02.herokuapp.com/api
 Content-Type: application/json
 
 {
-  "id" : 1,
   "name": "Divine chukwu",
   "age": "30",
   "nationality": "American",
