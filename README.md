@@ -49,7 +49,7 @@ pip install -r requirements.txt
 
 ## API Routes
 Add a New Person <br>
-**Endpoint:**  ```https://restfulapi-7fii.onrender.com/api/add_person``` <br>
+**Endpoint:**  ```/api``` <br>
 **HTTP Method:** POST <br>
 **Description:** Adds a new person to the database. <br>
 **Parameters:** JSON object with the following fields: <br>
@@ -59,7 +59,7 @@ nationality (string, optional): The nationality of the person. <br>
 gender (string, optional): The gender of the person. <br>
 **Example Request:** <br>
 ```
-POST  https://restfulapi-7fii.onrender.com/api/add_person/Divine chukwu
+POST  https://restfulapi-51bb862a3f02.herokuapp.com/api
 
 {
   "name": "Divine chukwu",
@@ -76,18 +76,18 @@ POST  https://restfulapi-7fii.onrender.com/api/add_person/Divine chukwu
 ```
 
 Get Person Details by Name <br>
-**Endpoint:**  ```https://restfulapi-7fii.onrender.com/api/get_person/<string:name>``` <br>
+**Endpoint:**  ```/api/<string:name>``` <br>
 **HTTP Method:** GET <br>
 **Description:** Retrieves details of a person by their name. <br>
 **Parameters:** The name parameter should be a string representing the person's name. <br>
 **Example Request:** <br>
 ```
-GET  https://restfulapi-7fii.onrender.com/api/get_person/John Doe
+GET  https://restfulapi-51bb862a3f02.herokuapp.com/api/John Divine
 ```
 **Example Response:** <br>
 ```
 {
-   "name": "John Doe",
+   "name": "john divine",
    "age": "30",
    "nationality": "American",
    "gender": "Male"
@@ -96,7 +96,7 @@ GET  https://restfulapi-7fii.onrender.com/api/get_person/John Doe
 
 
 Update Person Details <br>
-**Endpoint:**  ```https://restfulapi-7fii.onrender.com/api/update_person/<string:name>``` <br>
+**Endpoint:**  ```/api/<string:name>``` <br>
 **HTTP Method:** PUT <br>
 **Description:** Updates details of an existing person by their name taken as a string in the url. If new_name is specified among the parameters, it updates the user's name too. <br>
 **Parameters:** JSON object with the following fields: <br>
@@ -106,7 +106,7 @@ nationality (string, optional): The updated nationality of the person. <br>
 gender (string, optional): The updated gender of the person. <br>
 **Example Request:** <br>
 ```
-PUT  https://restfulapi-7fii.onrender.com/api/update_person/Divine chukwu
+PUT  https://restfulapi-51bb862a3f02.herokuapp.com/api/Divine chukwu
 
 {
   "new_name": "C ronaldo",
@@ -123,13 +123,13 @@ PUT  https://restfulapi-7fii.onrender.com/api/update_person/Divine chukwu
 ```
 
 Delete Person by Name <br>
-**Endpoint:**  ```https://restfulapi-7fii.onrender.com/api/delete_person/<string:name>``` <br>
+**Endpoint:**  ```/api/<string:name>``` <br>
 **HTTP Method:** DELETE <br>
 **Description:** Deletes a person by their name. <br>
 **Parameters:** The name parameter should be a string representing the person's name. <br>
 **Example Request:** <br>
 ```
-DELETE https://restfulapi-7fii.onrender.com/api/delete_person/Divine chukwu
+DELETE https://restfulapi-51bb862a3f02.herokuapp.com/api/Divine chukwu
 ```
 **Example Response:** <br>
 ```
