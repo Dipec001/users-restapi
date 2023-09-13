@@ -10,8 +10,11 @@ This is the documentation for the Users RESTful API developed by Divine Chukwu u
 4. [API Routes](#api-routes)
    - [Add a New Person](#add-a-new-person)
    - [Get Person Details by Name](#get-person-details-by-name)
-   - [Update Person Details](#update-person-details)
+   - [Get Person Details by Id](#get-person-details-by-id)
+   - [Update Person Details by Name](#update-person-details-by-name)
+   - [Update Person Details by Id](#update-person-details-by-id)
    - [Delete Person by Name](#delete-person-by-name)
+   - [Delete Person by Id](#delete-person-by-id)
 5. [Running the API](#running-the-api)
 6. [Usage](#usage)
 7. [Assumptions](#assumptions)
@@ -60,8 +63,10 @@ gender (string, optional): The gender of the person. <br>
 **Example Request:** <br>
 ```
 POST  https://restfulapi-51bb862a3f02.herokuapp.com/api
+Content-Type: application/json
 
 {
+  "id" : 1,
   "name": "Divine chukwu",
   "age": "30",
   "nationality": "American",
@@ -71,7 +76,11 @@ POST  https://restfulapi-51bb862a3f02.herokuapp.com/api
 **Example Response:** <br>
 ```
 {
-  "message": "User added successfully"
+  "id" : 1,
+  "name": "Divine chukwu",
+  "age": "30",
+  "nationality": "American",
+  "gender": "Male"
 }
 ```
 
@@ -79,23 +88,41 @@ Get Person Details by Name <br>
 **Endpoint:**  ```/api/<string:name>``` <br>
 **HTTP Method:** GET <br>
 **Description:** Retrieves details of a person by their name. <br>
-**Parameters:** The name parameter should be a string representing the person's name. <br>
 **Example Request:** <br>
 ```
-GET  https://restfulapi-51bb862a3f02.herokuapp.com/api/John Divine
+GET  https://restfulapi-51bb862a3f02.herokuapp.com/api/Divine chukwu
 ```
 **Example Response:** <br>
 ```
 {
-   "name": "john divine",
-   "age": "30",
-   "nationality": "American",
-   "gender": "Male"
+  "id" : 1,
+  "name": "divine chukwu",
+  "age": "30",
+  "nationality": "American",
+  "gender": "Male"
+}
+```
+Get Person Details by Id <br>
+**Endpoint:**  ```/api/user_id``` <br>
+**HTTP Method:** GET <br>
+**Description:** Retrieves details of a person by their id. <br>
+**Example Request:** <br>
+```
+GET  https://restfulapi-51bb862a3f02.herokuapp.com/api/1
+```
+**Example Response:** <br>
+```
+{
+  "id" : 1,
+  "name": "divine chukwu",
+  "age": "30",
+  "nationality": "American",
+  "gender": "Male"
 }
 ```
 
 
-Update Person Details <br>
+Update Person Details By Name <br>
 **Endpoint:**  ```/api/<string:name>``` <br>
 **HTTP Method:** PUT <br>
 **Description:** Updates details of an existing person by their name taken as a string in the url. If new_name is specified among the parameters, it updates the user's name too. <br>
@@ -107,6 +134,35 @@ gender (string, optional): The updated gender of the person. <br>
 **Example Request:** <br>
 ```
 PUT  https://restfulapi-51bb862a3f02.herokuapp.com/api/Divine chukwu
+Content-Type: application/json
+
+{
+  "new_name": "C ronaldo",
+  "age": "38",
+  "nationality": "Portuguese",
+  "gender": "Male"
+}
+```
+**Example Response:** <br>
+```
+{
+  "message": "User updated successfully"
+}
+```
+
+Update Person Details By Id <br>
+**Endpoint:**  ```/api/user_id``` <br>
+**HTTP Method:** PUT <br>
+**Description:** Updates details of an existing person by their Id passed in the url. If new_name is specified among the parameters, it updates the user's name too. <br>
+**Parameters:** JSON object with the following fields: <br>
+new_name (string, optional): The updated name of the person. <br>
+age (string, optional): The updated age of the person. <br>
+nationality (string, optional): The updated nationality of the person. <br>
+gender (string, optional): The updated gender of the person. <br>
+**Example Request:** <br>
+```
+PUT  https://restfulapi-51bb862a3f02.herokuapp.com/api/Divine chukwu
+Content-Type: application/json
 
 {
   "new_name": "C ronaldo",
@@ -130,6 +186,21 @@ Delete Person by Name <br>
 **Example Request:** <br>
 ```
 DELETE https://restfulapi-51bb862a3f02.herokuapp.com/api/Divine chukwu
+```
+**Example Response:** <br>
+```
+{
+  "message": "Person removed successfully"
+}
+```
+
+Delete Person by Id <br>
+**Endpoint:**  ```/api/user_id``` <br>
+**HTTP Method:** DELETE <br>
+**Description:** Deletes a person by their Id. <br>
+**Example Request:** <br>
+```
+DELETE https://restfulapi-51bb862a3f02.herokuapp.com/api/1
 ```
 **Example Response:** <br>
 ```
